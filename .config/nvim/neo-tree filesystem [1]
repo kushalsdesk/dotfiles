@@ -1,0 +1,23 @@
+  ~\AppData\Local\nvim                                                                                                                                                  Size        Type         Last Modified  
+    lua                                                                                                                                                                    -   directory   2024-01-09 09:20 PM  
+   │  plugins                                                                                                                                                              -   directory   2024-01-10 11:13 AM  
+   │ │  autopairs.lua                                                                                                                                                   80 B         lua   2024-01-09 12:35 PM  
+   │ │  barbar.lua                                                                                                                                            󰄱      1.12 KB         lua   2024-01-10 11:09 AM  
+   │ │  colorizer.lua                                                                                                                                         󰄱        233 B         lua   2024-01-10 11:10 AM  
+   │ │  colorscheme.lua                                                                                                                                       󰄱      4.95 KB         lua   2024-01-10 11:13 AM  
+   │ │  fidget.lua                                                                                                                                                  5.71 KB         lua   2024-01-09 09:24 PM  
+   │ │  indent-blankline.lua                                                                                                                                  󰄱      1.07 KB         lua   2024-01-10 11:06 AM  
+   │ │  lsp-zero.lua                                                                                                                                          󰄱      5.15 KB         lua   2024-01-09 09:50 PM  
+   │ │  lualine.lua                                                                                                                                           󰄱        234 B         lua   2024-01-09 09:14 PM  
+   │ │  neo-tree.lua                                                                                                                                                 2.66 KB         lua   2024-01-09 12:35 PM  
+   │ │  startup.lua                                                                                                                                                    195 B         lua   2024-01-09 12:35 PM  
+   │ │  telescope.lua                                                                                                                                         󰄱      1.22 KB         lua   2024-01-09 08:49 PM  
+   │ │  terminal.lua                                                                                                                                                 1.94 KB         lua   2024-01-09 12:35 PM  
+   │ │  treesitter.lua                                                                                                                                                1016 B         lua   2024-01-09 12:35 PM  
+   │ └  which-key.lua                                                                                                                                         󰄱      8.01 KB         lua   2024-01-10 11:09 AM  
+   └  defaults.lua                                                                                                                                            󰄱        870 B         lua   2024-01-09 09:20 PM  
+    README.md                                                                                                                                                          103 B          md   2024-01-09 12:35 PM  
+    init.lua                                                                                                                                                  󰄱        509 B         lua   2024-01-10 11:13 AM  
+    lazy-lock.json                                                                                                                                            󰄱      3.54 KB        json   2024-01-09 09:52 PM  
+    lazyvim.json                                                                                                                                                        85 B        json   2024-01-10 11:05 AM  
+   (1 hidden item)

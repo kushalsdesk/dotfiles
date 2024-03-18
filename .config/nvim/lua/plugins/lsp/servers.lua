@@ -1,0 +1,29 @@
+return {
+  jsonls = {
+    settings = {
+      json = {
+        schema = require("schemastore").json.schemas(),
+        validate = { enable = true },
+      },
+    },
+  },
+  lua_ls = {
+    Lua = {
+      telemetry = { enable = false },
+      diagnostics = {
+        globals = { "vim" },
+      },
+      workspace = {
+        -- make language server aware of runtime files
+        library = {
+          [vim.fn.expand("$VIMRUNTIME/lua")] = true,
+          [vim.fn.stdpath("config") .. "/lua"] = true,
+        },
+      },
+    },
+  },
+  tsserver = {},
+  gopls = {},
+  -- golangci_lint_ls = {},
+
+}
