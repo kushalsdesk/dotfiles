@@ -19,10 +19,23 @@ export NVM_DIR="$HOME/.nvm"
 alias nv="~/.config/nvim/"
 alias wez="~/.config/wezterm/"
 alias ll="ls -la"
-alias lpt="/mnt/Ghosts/Languages/"
+alias lpt="cd /home/caracal/Documents/Languages/"
+alias ppt="cd /home/caracal/Documents/Builds/"
 alias nio="nvim"
-
+alias gitAD="git add ."
+alias gitBC="better-commits"
+alias gitPU="git push -u origin main"
 eval "$(starship init zsh)"
 
+function yy ()
+{
+  local tmp="$(mktemp -t "yazi-cwd.XXXXX")"
+  yazi "$@" --cwd-file="$tmp"
+  if cwd="$(cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$pwd" ]; then 
+    cd -- "$cwd"
+  fi
+  rm -f -- "$tmp"
+
+}
 
 
