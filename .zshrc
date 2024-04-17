@@ -21,10 +21,11 @@ alias wez="~/.config/wezterm/"
 alias ll="ls -la"
 alias lpt="cd /home/caracal/Documents/Languages/"
 alias ppt="cd /home/caracal/Documents/Builds/"
+alias ypt="cd /home/caracal/.config/yazi/"
 alias nio="nvim"
-alias gitAD="git add ."
-alias gitBC="better-commits"
-alias gitPU="git push -u origin main"
+alias gadd="git add ."
+alias gcom="better-commits"
+alias gpush="git push -u origin main"
 eval "$(starship init zsh)"
 
 function yy ()
@@ -38,4 +39,60 @@ function yy ()
 
 }
 
+#Function for compiling the JavaFile
+compile() {
+  echo "Enter Package Name:"
+  read -r package_name
 
+  echo "Enter Class Name:"
+  read -r class_name
+
+  source_file="src/$package_name/$class_name.java" 
+
+  #Checks if sourceFile exists
+  if [ ! -f "$source_file" ]; then
+    echo "Error: File '$source_file' does not exist!"
+    return 1
+  fi
+
+  #Create output directory if not created
+  out_dir="out"
+  mkdir -p "$out_dir"
+
+  javac -d "$out_dir" "$source_file"
+  
+  # Check for compilation errors
+  if [ $? -ne 0 ]; then
+    echo "Compilation failed for '$class_name'"
+  else
+    echo "Successfully compiled '$class_name' to '$out_dir'"
+  fi
+}
+
+
+#For Running the java Class
+run () {
+  echo "Enter Package Name:"
+  read -r package_name
+
+  echo "Enter Class Name:"
+  read -r class_name
+  
+  # Class file path
+  class_file="out/$package_name/$class_name.class"
+
+  # Check if class file exists
+  if [ ! -f "$class_file" ]; then
+    echo "Error: Class file '$class_file' not found!"
+    return 1
+  fi
+
+  # Execute the class file with java command
+  java -cp "out" "$package_name.$class_name"
+
+  # Check for execution errors
+  if [ $? -ne 0 ]; then
+    echo "Error: Failed to run '$class_name'"
+  fi
+
+}
