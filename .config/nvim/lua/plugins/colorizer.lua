@@ -1,6 +1,5 @@
 return {
   "norcalli/nvim-colorizer.lua",
-  even = {"InsertEnter"},
   config = function()
     require 'colorizer'.setup({
       'css',

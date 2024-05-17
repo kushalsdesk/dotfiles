@@ -89,6 +89,7 @@ return {
       ["h"] = { "<cmd>ToggleTerm startinsert<cr>", "Toggle Terminal" },           -- Toggle Terminal
       ["z"] = { "<cmd>Lazy<cr>", "Toggle LazyWindows" },                          -- Toggle Lazy Window
       ["e"] = { "<cmd>Neotree focus<cr>", "Focus Explorer" },                     -- File Explorer
+      ["E"] = { "<Cmd>Neotree buffers<CR>", "Buffer List" },
       ["k"] = { "<cmd>bdelete<CR>", "Kill Buffer" },                              -- Close current file
       ["m"] = { "<cmd>Mason<cr>", "Mason" },                                      -- LSP Manager
       ["Q"] = { "<cmd>xa<CR>", "Save All n Quit" },                               -- Quit Neovim after saving the file
@@ -98,7 +99,7 @@ return {
       ["R"] = { "<cmd>BufferRestore<CR>", "Restore Buffer" },                     -- Restores the Buffer, If closed
 
       -- Language Support (lspconfig)
-      l = {
+      l     = {
         name = "LSP",
         i = { "<cmd>LspInfo<cr>", "Info" },
         r = { "<cmd>lua vim.lsp.buf.rename()<cr>", "Rename" },
@@ -110,7 +111,7 @@ return {
       },
 
       -- Telescope (Search Basis)
-      f = {
+      f     = {
         name = "File Search",
         c = { "<cmd>Telescope colorscheme<cr>", "Colorscheme" },
         a = { "<cmd>lua require('telescope.builtin').find_files()<cr>", "Find files" },
@@ -121,20 +122,15 @@ return {
       },
 
       --Barbar (Buffer Line)
-      b = {
-        name = "Buffer",
-        ["<C-b>"] = { "<Cmd>Neotree buffers<CR>", "Buffer List" },
+      b     = {
+        name      = "Buffer",
         ["<A-1>"] = { "<Cmd>BufferGoto 1<CR>", "Goto 1" },
         ["<A-2>"] = { "<Cmd>BufferGoto 2<CR>", "Goto 2" },
         ["<A-0>"] = { "<Cmd>BufferLast<CR>", "Last" },
         ["<A-p>"] = { "<Cmd>BufferPin<CR>", "Pin/Unpin" },
-        ["<Space>bb"] = { "<Cmd>BufferOrderByBufferNumber<CR>", "Sort by Buffer Number" },
-        ["<Space>bd"] = { "<Cmd>BufferOrderByDirectory<CR>", "Sort by Directory" },
-        ["<Space>bl"] = { "<Cmd>BufferOrderByLanguage<CR>", "Sort by Language" },
-        ["<Space>bw"] = { "<Cmd>BufferOrderByWindowNumber<CR>", "Sort by Window Number" },
       },
 
-      s = {
+      s     = {
         name = "Search",
         h = { "<cmd>Telescope help_tags<cr>", "Find Help" },
         m = { "<cmd>Telescope man_pages<cr>", "Man Pages" },
@@ -144,7 +140,7 @@ return {
       },
 
       --ToggleTerm (Terminal )
-      t = {
+      t     = {
         name = "Terminal",
         n = { "<cmd>lua _NODE_TOGGLE()<cr>", "Node" },                      -- NodeJS Terminal
         p = { "<cmd>lua _PYTHON_TOGGLE()<cr>", "Python" },                  -- Python Terminal

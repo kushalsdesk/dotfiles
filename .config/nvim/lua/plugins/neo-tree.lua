@@ -1,6 +1,5 @@
 return {
   "nvim-neo-tree/neo-tree.nvim",
-  event = {"VeryLazy"},
   branch = "v3.x",
   dependencies = {
     "nvim-lua/plenary.nvim",
@@ -9,6 +8,7 @@ return {
   },
   config = function()
     vim.keymap.set("n", "<leader>e", "<cmd>Neotree focus<CR>", {})
+    vim.keymap.set("n", "<M-e>", "<cmd>Neotree toggle<CR>", {})
 
     require("neo-tree").setup({
       popup_border_style = "rounded",
@@ -70,7 +70,7 @@ return {
         },
       },
       window = {
-        position = "float",
+        position = "left",
         width = 20,
       },
     })

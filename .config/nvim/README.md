@@ -59,7 +59,7 @@ This is  a cofiguration that will supports the proper confiuration with lazy.nvi
 
 | Mode | Keybinding | Description |
 |---|---|---|
-| Normal | `<leader>K` | Keywordprg |
+| Normal | `<leader>K` | Kill Current Buffer |
 | Visual | `<,>,<>` | Better indenting |
 | Visual | `<C-c>` | Better copying |
 | Normal | `<leader>z` | Lazy |
@@ -82,6 +82,7 @@ This is  a cofiguration that will supports the proper confiuration with lazy.nvi
 | Normal | `[e` | Go to the previous error |
 | Normal | `]w` | Go to the next warning |
 | Normal | `[w` | Go to the previous warning |
+| Normal | `gfd` | Shows the Keyword Doc in Float |
 
 ### Toggle Options
 

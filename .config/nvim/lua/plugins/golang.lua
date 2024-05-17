@@ -53,7 +53,6 @@ return {
         trouble = true,
       })
     end,
-    event = {  "BufEnter"  },
     ft = { "go", "gomod" },
     build = ':lua require("go.install").update_all_sync()',
   },

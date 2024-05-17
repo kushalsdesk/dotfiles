@@ -8,7 +8,6 @@ local function tabnine_build_path()
 end
 return {
   'codota/tabnine-nvim',
-  event = { "VimEnter" },
   build = tabnine_build_path(),
   config = function()
     require('tabnine').setup({

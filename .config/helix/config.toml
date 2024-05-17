@@ -1,0 +1,75 @@
+# TokyoNight is FAV Theme
+theme = "tokyonight"
+
+[editor]
+true-color= true
+cursorline = true
+line-number = "relative"
+mouse = false
+bufferline  = "multiple"
+color-modes = true
+auto-save = true
+
+# Wrapping Techniques
+soft-wrap.enable = true
+soft-wrap.max-indent-retain = 10
+
+# For Cursor
+cursor-shape.insert = "bar"
+cursor-shape.normal = "block"
+cursor-shape.select = "underline"
+
+# For Statusline
+statusline.left = ["mode", "spinner","version-control","file-modification-indicator"]
+statusline.center = ["file-name"]
+statusline.right = ["diagnostics", "selections", "position", "file-encoding", "file-line-ending", "file-type"]
+statusline.separator = " | "
+statusline.mode.normal = "NORMAL"
+statusline.mode.insert = "INSERT"
+statusline.mode.select = "SELECT"
+
+# For indent guides
+indent-guides.render = true
+indent-guides.character = "╎"
+indent-guides.skip-levels= 1
+
+# LSP support
+lsp.enable = true
+lsp.display-inlay-hints = true
+lsp.display-messages = true
+lsp.auto-signature-help = true
+lsp.snippets = true
+lsp.goto-reference-include-declaration = true
+
+
+# File picker support
+file-picker.hidden = false    
+
+
+# Keys Section
+[keys.insert]
+esc = [":w!", ":fmt", "normal_mode"]   #saves the file in insert mode, formats and quit insert mode
+A-k = "move_line_up"
+A-j = "move_line_down"
+A-l = "move_char_right"
+A-h = "move_char_left"
+[keys.normal]
+C-A-j = ['ensure_selections_forward', 'extend_to_line_bounds', 'extend_char_right', 'extend_char_left', 'delete_selection', 'add_newline_below', 'move_line_down', 'replace_with_yanked'] # Move lines Upwards even disjoint blocks
+C-A-k = ['ensure_selections_forward', 'extend_to_line_bounds', 'extend_char_right', 'extend_char_left', 'delete_selection', 'move_line_up', 'add_newline_above', 'move_line_up', 'replace_with_yanked'] # Move line Downwards, even disjoint blocks
+C-k=":bc"   #kills the current buffer
+C-q=":q!"  #quits helix
+esc=[":w!","collapse_selection", "keep_primary_selection"]  #escapes multiple selection
+# Buffer Movement
+C-left=":bprev"
+C-right=":bnext"
+# minor mapping for nested backspace mode
+[keys.normal.backspace]
+r = [":config-reload"]
+c = [":config-open"]
+#minor mapping for nested space mode
+
+
+[keys.normal.space]
+c = ['ensure_selections_forward', 'extend_to_line_bounds',":clipboard-yank",":clipboard-paste-after"] # Clone the current Line
+
+

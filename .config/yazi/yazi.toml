@@ -1,5 +1,5 @@
 [manager]
-ratio = [1, 4, 3]
+ratio = [2, 3, 3]
 sort_by = "alphabetical"
 sort_sensitive = false
 sort_reverse = false

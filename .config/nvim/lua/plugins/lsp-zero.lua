@@ -52,7 +52,7 @@ return {
         vim.keymap.set("n", "gd", function()
           vim.lsp.buf.definition()
         end, opts)
-        vim.keymap.set("n", "K", function()
+        vim.keymap.set("n", "gfd", function()
           vim.lsp.buf.hover()
         end, opts)
         vim.keymap.set("n", "<leader>ws", function()
@@ -149,7 +149,7 @@ return {
       })
 
       --Including Servers to Use LSP-zero
-      lsp_zero.setup_servers({ "tsserver", "rust_analyzer", "jdtls" , "lua_ls"})
+      lsp_zero.setup_servers({ "tsserver", "rust_analyzer", "jdtls", "lua_ls" })
 
       --Set sign icons
       lsp_zero.set_sign_icons({

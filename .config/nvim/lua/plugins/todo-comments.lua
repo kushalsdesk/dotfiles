@@ -3,7 +3,6 @@ return {
   enabled = true,
   dependencies = "nvim-lua/plenary.nvim",
   cmd = { "TodoTrouble", "TodoTelescope" },
-  event = { "InsertEnter" },
   config = function()
     require("todo-comments").setup({
       keywords = {

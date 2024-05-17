@@ -22,11 +22,21 @@ alias ll="ls -la"
 alias lpt="cd /home/caracal/Documents/Languages/"
 alias ppt="cd /home/caracal/Documents/Builds/"
 alias ypt="cd /home/caracal/.config/yazi/"
+alias code="snap run code ."
 alias nio="nvim"
+alias hx="helix"
 alias gadd="git add ."
 alias gcom="better-commits"
 alias gpush="git push -u origin main"
+alias astudio="/home/caracal/android-studio/bin/studio.sh"
+alias naut="nautilus ."
 eval "$(starship init zsh)"
+
+
+#Customized aliases for flutter .
+alias flutAndroid="flutter emulators --launch android_normal && flutter run"
+alias flutDesktop="flutter run -d linux"
+
 
 function yy ()
 {
@@ -96,3 +106,16 @@ run () {
   fi
 
 }
+
+export PATH="$PATH:/home/caracal/flutter/bin"
+export PATH="$PATH:/home/caracal/Android/Sdk"
+
+export PATH="$PATH:/usr/bin/dlv"
+# bun completions
+[ -s "/home/caracal/.bun/_bun" ] && source "/home/caracal/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+
+PATH=~/.console-ninja/.bin:$PATH
