@@ -24,13 +24,14 @@ alias ppt="cd /home/caracal/Documents/Builds/"
 alias ypt="cd /home/caracal/.config/yazi/"
 alias code="snap run code ."
 alias nio="nvim"
-alias hx="helix"
 alias gadd="git add ."
 alias gcom="better-commits"
 alias gpush="git push -u origin main"
 alias astudio="/home/caracal/android-studio/bin/studio.sh"
 alias naut="nautilus ."
 eval "$(starship init zsh)"
+
+
 
 
 #Customized aliases for flutter .
@@ -110,7 +111,7 @@ run () {
 export PATH="$PATH:/home/caracal/flutter/bin"
 export PATH="$PATH:/home/caracal/Android/Sdk"
 
-export PATH="$PATH:/usr/bin/dlv"
+export PATH="$PATH:/usr/bin"
 # bun completions
 [ -s "/home/caracal/.bun/_bun" ] && source "/home/caracal/.bun/_bun"
 
