@@ -56,6 +56,15 @@ install_packages() {
     done
 }
 
+# installPackages() {
+#   local packages=("$@")
+#   for package in "${packages[@]}"; do
+#     echo "Installing $package..."
+#     # Use pacman to install the package
+#     sudo pacman -S --noconfirm "$package"
+#   done
+# }
+
 
 # Function to download and install Warp
 install_warp() {
@@ -76,9 +85,9 @@ install_web_dev_packages() {
     echo "-----------------------------------------------------------------" 
     echo "-----------------------------------------------------------------" 
     echo ""
-
-    echo "Stage 1: Programming Languages C++, Zig, Rust, Lua, PHP, Java, TS, Golang" 
-
+    for package in "${LANGUAGES[@]}"; do
+      echo " - $package"
+    done    
     echo ""
     echo "-----------------------------------------------------------------" 
     echo "-----------------------------------------------------------------" 
@@ -195,13 +204,13 @@ install_web_dev_packages() {
     echo ""
 
     echo "Stage 4: Language Servers (LSPs)"
-
+    echo "tsserver, gopls, rust-analyzer, rustup, luals, delve, composer "
     echo ""
     echo "-----------------------------------------------------------------" 
     echo "-----------------------------------------------------------------" 
 
     echo "Using AUR_Helpers to install LSPs"
-    LSP_PACKAGES=("typescript-language-server" "gopls" "rust-analyzer" "lua-language-server")
+    LSP_PACKAGES=("typescript-language-server" "gopls" "rust-analyzer" "lua-language-server" "delve" "composer" "rustup" )
     for package in "${LSP_PACKAGES[@]}"; do
         install_packages $package
     done

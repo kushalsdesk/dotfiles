@@ -9,7 +9,7 @@ create_dotfiles_symlink() {
         #rsync -av --exclude 'scripts' --exclude '*.sh' ./ "$DOTFILES_DIR/"
     fi
     cd "$DOTFILES_DIR" || exit
-    stow --ignore='.*\.sh' * .
+    stow --ignore='.*\.sh'  .
     echo "Dotfiles symlink created."
 }
 

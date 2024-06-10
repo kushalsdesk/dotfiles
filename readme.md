@@ -1,0 +1,10 @@
+hyprland, 
+hyperlock, 
+hyperpaper,
+waybar, 
+rofi-wayland,
+qt6-wayland,
+qt5-wayland,
+dunst,
+xdg-portal-wayland-hyprland
+nautilus
