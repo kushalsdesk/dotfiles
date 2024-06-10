@@ -5,8 +5,8 @@ create_dotfiles_symlink() {
         echo "Copying dotfiles to $DOTFILES_DIR..."
         # Copy all files and directories from the current directory to ~/.dotfiles
         mkdir -p "$DOTFILES_DIR"
-        # rsync -av ./ "$DOTFILES_DIR/"
-        rsync -av --exclude 'scripts' --exclude '*.sh' ./ "$DOTFILES_DIR/"
+        rsync -av ./ "$DOTFILES_DIR/"
+        #rsync -av --exclude 'scripts' --exclude '*.sh' ./ "$DOTFILES_DIR/"
     fi
     cd "$DOTFILES_DIR" || exit
     stow --ignore='.*\.sh' * .
