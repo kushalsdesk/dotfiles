@@ -1,5 +1,48 @@
+# Function to install Yay or Paru
+install_aur_helper() {
+    echo "-----------------------------------------------------------------" 
+    echo "-----------------------------------------------------------------" 
+    echo ""
+
+    echo "Choose an AUR helper to install (yay or paru):"
+
+    echo ""
+    echo "-----------------------------------------------------------------" 
+    echo "-----------------------------------------------------------------" 
+
+    select helper in "yay" "paru"; do
+        case $helper in
+            yay)
+                echo "Installing yay..."
+                sudo pacman -S --needed git base-devel
+                git clone https://aur.archlinux.org/yay.git
+                cd yay
+                makepkg -si
+                cd ..
+                rm -rf yay
+                AUR_HELPER="yay"
+                break
+                ;;
+            paru)
+                echo "Installing paru..."
+                sudo pacman -S --needed git base-devel
+                git clone https://aur.archlinux.org/paru.git
+                cd paru
+                makepkg -si
+                cd ..
+                rm -rf paru
+                AUR_HELPER="paru"
+                break
+                ;;
+            *)
+                echo "Invalid option. Please choose yay or paru."
+                ;;
+        esac
+    done
+}
 
 install_packages() {
+    install_aur_helper()
     for package in "$@"; do
         if pacman -Si $package &> /dev/null; then
             echo "Installing $package from official repositories..."
