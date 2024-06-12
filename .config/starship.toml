@@ -1,12 +1,13 @@
 # Get editor completions based on the config schema
 "$schema" = 'https://starship.rs/config-schema.json'
-
-# Inserts a blank line between shell prompts
 add_newline = true
+# Inserts a blank line between shell prompts
 
 # Replace the '❯' symbol in the prompt with '➜'
 [character] # The name of the module we are configuring is 'character'
-success_symbol = '[🐧](bold green)' # The 'success_symbol' segment is being set to '➜' with the color 'bold green'
+success_symbol = '[💎](bold green)' # The 'success_symbol' segment is being set to '➜' with the color 'bold green'
+error_symbol = '[⚠️](bold red)'
+
 
 # Disable the package module, hiding it from the prompt completely
 [package]
@@ -41,7 +42,7 @@ format = "[$path]($style)[$lock_symbol]($lock_style)"
 
 [git_branch]
 format = " [$symbol$branch]($style) "
-symbol = "🥦"
+symbol = "🌿"
 style = "bold yellow"
 
 [git_commit]
@@ -53,14 +54,14 @@ format = '[\($state( $progress_current of $progress_total)\)]($style) '
 
 [git_status]
 conflicted = "⚔️ "
-ahead = "🏎️ 💨 ×${count} "
-behind = "🐢 ×${count} "
-diverged = "🔱 🏎️ 💨 ×${ahead_count} 🐢 ×${behind_count} "
-untracked = "🛤️  ×${count} "
+ahead = "📡×${count} "
+behind = "🪐×${count} "
+diverged = "📡 ×${ahead_count} 🪐 ×${behind_count} "
+untracked = "⛓️‍💥x${count} "
 stashed = "📦 "
-modified = "📝 ×${count} "
-staged = "🗃️  ×${count} "
-renamed = "📛 ×${count} "
+modified = "⚙️ ×${count} "
+staged = "🚀 ×${count} "
+renamed = "🔧 ×${count} "
 deleted = "🗑️  ×${count} "
 style = "bright-white"
 format = "$all_status$ahead_behind"
