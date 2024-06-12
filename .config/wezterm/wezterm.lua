@@ -1,7 +1,6 @@
 local wezterm = require "wezterm"
 local act = wezterm.action
 
-
 local config = {}
 -- Use the config builder when possible
 if wezterm.config_builder then config = wezterm.config_builder() end
@@ -9,14 +8,15 @@ if wezterm.config_builder then config = wezterm.config_builder() end
 -- Settings
 config.color_scheme = "FirefoxDev"
 config.font = wezterm.font_with_fallback({
-  { family = "CaskaydiaCove Nerd Font", scale = 1.35 },
-  { family = "Fira Code",               scale = 1.30 },
+  { family = "CaskaydiaCove Nerd Font", scale = 1.15 },
+  { family = "Fira Code",               scale = 1.15 },
 })
 config.window_background_opacity = 0.966
 config.window_decorations = "RESIZE"
 config.window_close_confirmation = "NeverPrompt"
 config.scrollback_lines = 3000
 config.default_workspace = "home"
+config.enable_wayland = false
 
 -- Dim inactive panes
 config.inactive_pane_hsb = {
