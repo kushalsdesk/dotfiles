@@ -8,7 +8,7 @@ if wezterm.config_builder then config = wezterm.config_builder() end
 -- Settings
 config.color_scheme = "FirefoxDev"
 config.font = wezterm.font_with_fallback({
-  { family = "CaskaydiaCove Nerd Font", scale = 1.15 },
+  { family = "CaskaydiaCove Nerd Font", scale = 1.20 },
   { family = "Fira Code",               scale = 1.15 },
 })
 config.window_background_opacity = 0.966
