@@ -5,8 +5,8 @@ add_newline = true
 
 # Replace the '❯' symbol in the prompt with '➜'
 [character] # The name of the module we are configuring is 'character'
-success_symbol = '[💎](bold green)' # The 'success_symbol' segment is being set to '➜' with the color 'bold green'
-error_symbol = '[⚠️](bold red)'
+success_symbol = '[󱓞  ](bold blue)' # The 'success_symbol' segment is being set to '➜' with the color 'bold green'
+error_symbol = '[󱗗 󱗗](bold yellow)'
 
 
 # Disable the package module, hiding it from the prompt completely
@@ -16,9 +16,9 @@ disabled = true
 
 # Use custom format
 format = '''
-[┌───────────────────>](bold green)
-[│](bold green)$directory$rust$package
-[└─>](bold green) '''
+  ┌───────────────────>]$custom.home_icon
+[[│](bold blue)$directory$rust$package
+[ └─>] '''
 
 # Wait 10 milliseconds for starship to check files under the current directory.
 scan_timeout = 10
@@ -42,8 +42,8 @@ format = "[$path]($style)[$lock_symbol]($lock_style)"
 
 [git_branch]
 format = " [$symbol$branch]($style) "
-symbol = "🌿"
-style = "bold yellow"
+symbol = " "
+style = "bold underline yellow"
 
 [git_commit]
 commit_hash_length = 8
@@ -53,17 +53,16 @@ style = "bold white"
 format = '[\($state( $progress_current of $progress_total)\)]($style) '
 
 [git_status]
-conflicted = "⚔️ "
-ahead = "📡×${count} "
-behind = "🪐×${count} "
-diverged = "📡 ×${ahead_count} 🪐 ×${behind_count} "
-untracked = "⛓️‍💥x${count} "
-stashed = "📦 "
-modified = "⚙️ ×${count} "
-staged = "🚀 ×${count} "
-renamed = "🔧 ×${count} "
-deleted = "🗑️  ×${count} "
-style = "bright-white"
+conflicted = "[ ](bold dimmed red) "
+ahead = "[ ×${count}](blink dimmed blue) "
+behind = "[ ×${count}](blink bright-white) "
+diverged = " [ ×${ahead_count}  ×${behind_count}](bright italic white) "
+untracked = "[ x${count}](italic dimmed green) "
+stashed = " [ ](dimmed purple) "
+modified = " [ ×${count}](blink bold blue) "
+staged = " [ ×${count}](dimmed italic green) "
+renamed = " [ ×${count}](italic dimmed purple) "
+deleted = " [ ×${count}](dimmed italic strikethrough red) "
 format = "$all_status$ahead_behind"
 
 [hostname]
@@ -73,14 +72,16 @@ trim_at = "-"
 style = "bold dimmed white"
 disabled = true
 
-[julia]
-format = "[$symbol$version]($style) "
-symbol = "ஃ "
-style = "bold green"
 
 [memory_usage]
 format = "$symbol[${ram}( | ${swap})]($style) "
 threshold = 70
 style = "bold dimmed white"
 disabled = false
+
+# Custom module to show icon in home directory
+[custom.home_icon]
+description = "Show icon in home directory"
+command = "echo   ' 🏡'"
+when = "test $(pwd) = $HOME"
 
