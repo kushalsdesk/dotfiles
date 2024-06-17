@@ -62,7 +62,7 @@ stashed = " [ ](dimmed purple) "
 modified = " [ ×${count}](blink bold blue) "
 staged = " [ ×${count}](dimmed italic green) "
 renamed = " [ ×${count}](italic dimmed purple) "
-deleted = " [ ×${count}](dimmed italic strikethrough red) "
+deleted = " [ ×${count}](dimmed italic red) "
 format = "$all_status$ahead_behind"
 
 [hostname]
