@@ -4,6 +4,7 @@
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
 
+
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
@@ -119,20 +120,71 @@ fi
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# Detect the AUR wrapper
+if pacman -Qi yay &>/dev/null ; then
+   aurhelper="yay"
+elif pacman -Qi paru &>/dev/null ; then
+   aurhelper="paru"
+fi
+
+function in {
+    local -a inPkg=("$@")
+    local -a arch=()
+    local -a aur=()
+
+    for pkg in "${inPkg[@]}"; do
+        if pacman -Si "${pkg}" &>/dev/null ; then
+            arch+=("${pkg}")
+        else 
+            aur+=("${pkg}")
+        fi
+    done
+
+    if [[ ${#arch[@]} -gt 0 ]]; then
+        sudo pacman -S "${arch[@]}"
+    fi
+
+    if [[ ${#aur[@]} -gt 0 ]]; then
+        ${aurhelper} -S "${aur[@]}"
+    fi
+}
+
+# Previous aliases
 alias hx="helix ."
 alias wez="~/.config/wezterm/"
-alias ll="ls -la"
 alias lpt="cd /home/caracal/Documents/Languages/"
 alias ppt="cd /home/caracal/Documents/Builds/"
 alias ypt="cd /home/caracal/.config/yazi/"
-alias code="snap run code ."
 alias nio="nvim"
 alias gadd="git add ."
 alias gcom="better-commits"
 alias gpush="git push -u origin main"
-alias astudio="/home/caracal/android-studio/bin/studio.sh"
 alias naut="nautilus ."
-eval "$(starship init zsh)"
+# Helpful aliases
+alias  c='clear' # clear terminal
+alias  l='eza -lh  --icons=auto' # long list
+alias ls='eza -1   --icons=auto' # short list
+alias ll='eza -lha --icons=auto --sort=name --group-directories-first' # long list all
+alias ld='eza -lhD --icons=auto' # long list dirs
+alias lt='eza --icons=auto --tree' # list folder as tree
+alias un='$aurhelper -Rns' # uninstall package
+alias up='$aurhelper -Syu' # update system/package/aur
+alias pl='$aurhelper -Qs' # list installed package
+alias pa='$aurhelper -Ss' # list availabe package
+alias pc='$aurhelper -Sc' # remove unused cache
+alias po='$aurhelper -Qtdq | $aurhelper -Rns -' # remove unused packages, also try > $aurhelper -Qqd | $aurhelper -Rsu --print -
+alias vc='code' # gui code editor
+
+# Handy change dir shortcuts
+alias ..='cd ..'
+alias ...='cd ../..'
+alias .3='cd ../../..'
+alias .4='cd ../../../..'
+alias .5='cd ../../../../..'
+
+# Always mkdir a path (this doesn't inhibit functionality to make a single dir)
+alias mkdir='mkdir -p'
 
 
 
@@ -211,8 +263,6 @@ run () {
 
 }
 
-export PATH="$PATH:/home/caracal/flutter/bin"
-export PATH="$PATH:/home/caracal/Android/Sdk"
 
 export PATH="$PATH:/usr/bin"
 # bun completions
@@ -224,5 +274,6 @@ export PATH="$BUN_INSTALL/bin:$PATH"
 
 PATH=~/.console-ninja/.bin:$PATH
 
-source ~/.dotfiles/scripts/fast-init.sh
+eval "$(starship init zsh)"
+source ~/.dotfiles/.scripts/fast-init.sh
 
