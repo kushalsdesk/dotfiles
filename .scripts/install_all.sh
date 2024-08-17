@@ -87,9 +87,8 @@ packages=(
   "qalculate-gtk"
   "yazi"
   "imagemagick"
-  "guvcview"
+  "cheese"
   "jq"
-  "rofi-wayland"
   "fastfetch"
   "blueman"
   "ffmpegthumbnailer"
@@ -100,6 +99,11 @@ packages=(
   "fzf"
   "xclip"
   "github-cli"
+  "stow"
+  "gnome-weather"
+  "gnome-maps"
+  "gnome-characters"
+  "auto-cpufreq"
 )
 
 # Install packages
