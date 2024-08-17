@@ -1,6 +1,0 @@
-depending on what style of arrows you want cut and past assets old or new in to the assets folder, then log out and back in .
-
-stage font set @ (9.5px) is compatible for both Ubuntu-18.04 & Ubuntu-18.10 
-
-
-Enjoy!!!!
