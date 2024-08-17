@@ -59,7 +59,7 @@ behind = "[ ×${count}](blink bright-white) "
 diverged = " [ ×${ahead_count}  ×${behind_count}](bright italic white) "
 untracked = "[ x${count}](italic dimmed green) "
 stashed = " [ ](dimmed purple) "
-modified = " [ ×${count}](blink bold blue) "
+modified = " [ ×${count}](blink blue) "
 staged = " [ ×${count}](dimmed italic green) "
 renamed = " [ ×${count}](italic dimmed purple) "
 deleted = " [ ×${count}](dimmed italic red) "
@@ -74,8 +74,8 @@ disabled = true
 
 
 [memory_usage]
-format = "$symbol[${ram}( | ${swap})]($style) "
-threshold = 70
+format = "$symbol[${ram}]($style) "
+threshold = 50
 style = "bold dimmed white"
 disabled = false
 
@@ -85,3 +85,11 @@ description = "Show icon in home directory"
 command = "echo   ' 🏡'"
 when = "test $(pwd) = $HOME"
 
+
+[golang]
+symbol="  "
+style = "blue"
+
+[lua]
+symbol = "  "
+style = "blue"

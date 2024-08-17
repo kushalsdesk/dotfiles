@@ -22,7 +22,7 @@ ueberzug_offset = [0, 0, 0, 0]
 
 [opener]
 edit = [
-	{ run = 'helix "$@"', block = true },
+	{ run = 'nvim "$@"', block = true },
 ]
 play = [
 	{ run = 'vlc "$@"', orphan = true, for = "unix" },
@@ -31,5 +31,7 @@ open = [
 	{ run = 'xdg-open "$@"', desc = "Open" },
 ]
 
-
-
+[plugin]
+prepend_previewers = [
+  { name = "*.md", run = "glow" },
+]
