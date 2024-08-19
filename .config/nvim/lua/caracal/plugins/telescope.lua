@@ -3,6 +3,7 @@ return {
 	branch = "0.1.x",
 	dependencies = {
 		"nvim-lua/plenary.nvim",
+		"jonarrien/telescope-cmdline.nvim",
 		{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
 		"nvim-tree/nvim-web-devicons",
 		"folke/todo-comments.nvim",
@@ -13,6 +14,21 @@ return {
 		local actions = require("telescope.actions")
 
 		telescope.setup({
+			extensions = {
+				cmdline = {
+					picker = {
+						layout_config = {
+							width = 120,
+							height = 25,
+						},
+					},
+					mappings = {
+						complete = "<Tab>",
+						run_selection = "<C-CR>",
+						run_input = "<CR>",
+					},
+				},
+			},
 			defaults = {
 				path_display = { "smart" },
 				mappings = {
@@ -26,7 +42,7 @@ return {
 		})
 
 		telescope.load_extension("fzf")
-
+		telescope.load_extension("cmdline")
 		-- set keymaps
 		local keymap = vim.keymap -- for conciseness
 

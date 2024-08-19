@@ -4,6 +4,9 @@ return {
 		require("colorizer").setup({
 			"css",
 			"javascript",
+			"typescript",
+			"tsx",
+			"jsx",
 			html = { mode = "background" },
 		}, { mode = "foreground" })
 	end,
