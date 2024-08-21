@@ -186,6 +186,10 @@ export PATH="$PATH:/usr/bin"
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
 
+# android emulator 
+export ANDROID_SDK_ROOT=$HOME/android-sdk
+export PATH=$ANDROID_SDK_ROOT/cmdline-tools/latest/bin:$ANDROID_SDK_ROOT/platform-tools:$ANDROID_SDK_ROOT/emulator:$PATH
+
 PATH=~/.console-ninja/.bin:$PATH
 
 
