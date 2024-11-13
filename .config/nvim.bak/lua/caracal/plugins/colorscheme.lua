@@ -50,6 +50,7 @@ return {
 			lualine_bold = false, -- When `true`, section headers in the lualine theme will be bold
 		},
 	},
+
 	-- Theme Catppuccin And Its Options
 	{
 		"catppuccin/nvim",

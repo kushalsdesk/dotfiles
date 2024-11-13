@@ -24,11 +24,11 @@ require("lazy").setup({
 	},
 })
 
--- Function to load and apply a theme
+-- -- Function to load and apply a theme
 local function load_theme(theme_name)
 	require("lazy").load({ plugins = theme_name })
 	vim.cmd.colorscheme(theme_name)
 end
-
+--
 -- Set your theme here
 load_theme("tokyonight") -- or "tokyonight", "catppuccin", "onedark"

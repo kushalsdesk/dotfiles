@@ -18,8 +18,8 @@ return {
 				cmdline = {
 					picker = {
 						layout_config = {
-							width = 120,
-							height = 25,
+							width = 55,
+							height = 20,
 						},
 					},
 					mappings = {

@@ -179,6 +179,8 @@ run () {
 
 
 export PATH="$PATH:/usr/bin"
+export PATH="/usr/local/bin:$PATH"
+
 # bun completions
 [ -s "/home/caracal/.bun/_bun" ] && source "/home/caracal/.bun/_bun"
 
@@ -191,10 +193,12 @@ export ANDROID_SDK_ROOT=$HOME/android-sdk
 export PATH=$ANDROID_SDK_ROOT/cmdline-tools/latest/bin:$ANDROID_SDK_ROOT/platform-tools:$ANDROID_SDK_ROOT/emulator:$PATH
 
 PATH=~/.console-ninja/.bin:$PATH
-
+export ENCORE_INSTALL="/home/caracal/.encore"
+export PATH="$ENCORE_INSTALL/bin:$PATH"
 
 eval "$(starship init zsh)"
 eval "$(zoxide init zsh)"
 export PATH=$HOME/.local/bin:$PATH
 alias ff='fastfetch'
 alias nn='nvim'
+. "/home/caracal/.deno/env"

@@ -1,3 +1,5 @@
 [user]
 	email = kushal99mondal@gmail.com
-	name = kushalsdesk
+	name = Kushal Mondal
+[alias]
+	graph = log --all --graph --decorate --oneline

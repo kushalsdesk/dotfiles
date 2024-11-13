@@ -4,10 +4,10 @@ return {
     build = ":TSUpdate",
     config = function()
       -- import nvim-treesitter plugin
-      local treesitter = require("nvim-treesitter.configs")
+      local treesitter = require "nvim-treesitter.configs"
 
       -- configure treesitter
-      treesitter.setup({ -- enable syntax highlighting
+      treesitter.setup { -- enable syntax highlighting
         highlight = {
           enable = true,
         },
@@ -42,7 +42,7 @@ return {
           "gowork",
           "gosum",
         },
-      })
+      }
     end,
   },
   {
@@ -51,17 +51,24 @@ return {
       "javascript",
       "javascriptreact",
       "typescript",
-      "typescriptreact"
+      "typescriptreact",
     },
     config = function()
-        require("nvim-ts-autotag").setup({
+      require("nvim-ts-autotag").setup {
         opts = {
           -- Defaults
           enable_close = true, -- Auto close tags
           enable_rename = true, -- Auto rename pairs of tags
-          enable_close_on_slash = false -- Auto close on trailing </
+          enable_close_on_slash = false, -- Auto close on trailing </
         },
-      })
+      }
+    end,
+  },
+  {
+    "nvim-treesitter/nvim-treesitter-context",
+    dependencies = { "nvim-treesitter/nvim-treesitter" },
+    config = function()
+      require("treesitter-context").setup()
     end,
   },
 }

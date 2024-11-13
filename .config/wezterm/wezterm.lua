@@ -8,13 +8,23 @@ if wezterm.config_builder then
 	config = wezterm.config_builder()
 end
 
--- Settings
-config.color_scheme = "FirefoxDev"
+-- to choose from fav schemes
+local schemes = {
+	firefoxdev = "FirefoxDev",
+	tomorrow = "Tomorrow Night Bright",
+	liqcarbon = "LiquidCarbonTransparent",
+	onehalfblack = "One Half Black (Gogh)",
+	oxocarbon = "Oxocarbon Dark (Gogh)",
+	tokyonight = "tokyonight_strom",
+}
+config.color_scheme = schemes.firefoxdev
 config.font = wezterm.font_with_fallback({
-	{ family = "CaskaydiaCove Nerd Font", scale = 1.35 },
+	-- { family = "CaskaydiaCove Nerd Font", scale = 1.30 },
+	{ family = "Maple Mono", scale = 1.32 },
+	{ family = "RecMonoCasual Nerd Font Mono", scale = 1.30 },
 	{ family = "Fira Code", scale = 1.30 },
 })
-config.window_background_opacity = 0.75
+config.window_background_opacity = 0.80
 config.hide_tab_bar_if_only_one_tab = true
 config.window_decorations = "RESIZE"
 config.window_close_confirmation = "NeverPrompt"
@@ -116,7 +126,7 @@ config.key_tables = {
 }
 
 --Tab UI
-config.use_fancy_tab_bar = false
+config.use_fancy_tab_bar = true
 config.status_update_interval = 1000
 
 wezterm.on("update-right-status", function(window, pane)

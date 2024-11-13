@@ -10,7 +10,7 @@ return {
 				theme = "horizon",
 				component_separators = { left = "", right = "" },
 				section_separators = { left = "", right = "" },
-				disabled_filetypes = { "alpha", "dashboard", "NvimTree", "Outline" },
+				disabled_filetypes = { "alpha", "startup", "dashboard", "NvimTree", "Outline" },
 				ignore_focus = {},
 				always_divide_middle = true,
 				globalstatus = false,
@@ -45,7 +45,7 @@ return {
 				lualine_z = {},
 			},
 			winbar = {},
-			inactive_winbar = {},
+			inactive_winbar = { "NvimTree" },
 			extensions = {},
 		})
 	end,
