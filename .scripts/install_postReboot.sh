@@ -24,10 +24,10 @@ plugins_dir="${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins"
 
 if [[ ! -d "$plugins_dir/zsh-autosuggestions" ]]; then
   echo "Cloning zsh-autosuggestions..."
-  git clone https://github.com/zsh-users/zsh-autosuggestions "$plugins_dir/zsh-autosuggestions"
+  git clone https://github.com/zsh-users/zsh-autosuggestions.git "$plugins_dir/zsh-autosuggestions"
 fi
 
-if [[ ! -d "$plugins_dir/zsh-syntax-highlighting.git" ]]; then
+if [[ ! -d "$plugins_dir/zsh-syntax-highlighting" ]]; then
   echo "Cloning zsh-syntax-highlighting..."
   git clone https://github.com/zsh-users/zsh-syntax-highlighting.git "$plugins_dir/zsh-syntax-highlighting.git"
 fi
