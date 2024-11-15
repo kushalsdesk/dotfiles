@@ -104,6 +104,8 @@ packages=(
   "gnome-maps"
   "gnome-characters"
   "auto-cpufreq"
+  "zsh"
+  "zoxide"
 )
 
 # Install packages
