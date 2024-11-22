@@ -19,18 +19,18 @@ local schemes = {
 }
 config.color_scheme = schemes.firefoxdev
 config.font = wezterm.font_with_fallback({
-	-- { family = "CaskaydiaCove Nerd Font", scale = 1.30 },
-	{ family = "Maple Mono", scale = 1.32 },
-	{ family = "RecMonoCasual Nerd Font Mono", scale = 1.30 },
+	{ family = "Maple Mono", scale = 1.10 },
 	{ family = "Fira Code", scale = 1.30 },
+	{ family = "CaskaydiaCove Nerd Font", scale = 1.30 },
+	{ family = "RecMonoCasual Nerd Font Mono", scale = 1.30 },
 })
-config.window_background_opacity = 0.80
+config.window_background_opacity = 0.93
 config.hide_tab_bar_if_only_one_tab = true
-config.window_decorations = "RESIZE"
+config.window_decorations = "NONE"
 config.window_close_confirmation = "NeverPrompt"
 config.scrollback_lines = 1500
 config.default_workspace = "home"
-config.enable_wayland = false
+config.enable_wayland = true
 
 -- Dim inactive panes
 config.inactive_pane_hsb = {

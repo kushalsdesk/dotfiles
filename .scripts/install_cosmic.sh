@@ -21,9 +21,11 @@ sudo pacman -S git --noconfirm
 
 # Clone and install the Candy theme for SDDM
 echo "Installing the Candy theme for SDDM..."
-git clone https://github.com/EliverLara/candy-sddm-theme.git
-sudo mkdir -p /usr/share/sddm/themes
-sudo mv candy-sddm-theme /usr/share/sddm/themes/candy
+# git clone https://github.com/EliverLara/candy-sddm-theme.git
+# sudo mkdir -p /usr/share/sddm/themes
+# sudo mv candy-sddm-theme /usr/share/sddm/themes/candy
+sudo mv /sddm /usr/share/
+sudo mv /sddm.conf.d /etc/
 
 # Set Candy as the default theme in SDDM
 echo "Configuring SDDM to use the Candy theme..."

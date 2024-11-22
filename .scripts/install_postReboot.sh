@@ -29,7 +29,7 @@ fi
 
 if [[ ! -d "$plugins_dir/zsh-syntax-highlighting" ]]; then
   echo "Cloning zsh-syntax-highlighting..."
-  git clone https://github.com/zsh-users/zsh-syntax-highlighting.git "$plugins_dir/zsh-syntax-highlighting.git"
+  git clone https://github.com/zsh-users/zsh-syntax-highlighting.git "$plugins_dir/zsh-syntax-highlighting"
 fi
 
 echo "Zsh setup completed! You might need to restart your terminal or source your Zsh configuration file (usually ~/.zshrc)"

@@ -52,6 +52,7 @@ packages=(
   "mousepad"
   "noto-fonts"
   "otf-font-awesome"
+  "ttf-maple"
   "ttf-fira-sans"
   "ttf-fira-code"
   "ttf-firacode-nerd"

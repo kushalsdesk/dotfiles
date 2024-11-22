@@ -3,18 +3,18 @@
 # Function to install Yay or Paru
 
 
-# Function to install packages using pacman or AUR helper
-# install_packages() {
-#     for package in "$@"; do
-#         if pacman -Si $package &> /dev/null; then
-#             echo "Installing $package from official repositories..."
-#             sudo pacman -S --needed $package
-#         else
-#             echo "Installing $package from AUR..."
-#             $AUR_HELPER -S --needed $package
-#         fi
-#     done
-# }
+ #Function to install packages using pacman or AUR helper
+ install_packages() {
+     for package in "$@"; do
+         if pacman -Si $package &> /dev/null; then
+             echo "Installing $package from official repositories..."
+             sudo pacman -S --needed $package
+         else
+             echo "Installing $package from AUR..."
+             $AUR_HELPER -S --needed $package
+         fi
+     done
+ }
 
 installPackages() {
   local packages=("$@")
@@ -39,6 +39,13 @@ install_warp() {
 # Function to install web development packages in stages
 install_web_dev_packages() {
     echo "Installing required packages for Web@Dev..."
+    echo "Installing Node Version Manager First"
+    curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
+    echo "NVM installed"
+
+    echo "Installing Bun"
+    curl -fsSL https://bun.sh/install | bash
+    echo "Bun Installed"
 
     # Stage 1: Programming Languages
     LANGUAGES=("C++" "Zig" "Rust" "Lua" "PHP" "OpenJDK" "TypeScript" "Golang")
@@ -51,7 +58,7 @@ install_web_dev_packages() {
     echo ""
     echo "-----------------------------------------------------------------" 
     echo "-----------------------------------------------------------------" 
-    LANGUAGE_PACKAGES=("gcc" "zig" "rust" "lua" "php" "jdk-openjdk" "typescript" "go")
+    LANGUAGE_PACKAGES=("gcc" "zig" "rustup" "lua" "php" "jdk-openjdk" "typescript" "go")
     for i in "${!LANGUAGES[@]}"; do
         install_packages ${LANGUAGE_PACKAGES[$i]}
     done
