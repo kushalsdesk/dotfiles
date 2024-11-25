@@ -1,0 +1,88 @@
+{
+    (
+        modifiers: [
+            Super,
+            Shift,
+        ],
+        key: "b",
+    ): System(BrightnessDown),
+    (
+        modifiers: [
+            Super,
+        ],
+        key: "b",
+    ): System(BrightnessUp),
+    (
+        modifiers: [
+            Super,
+            Ctrl,
+        ],
+        key: "Right",
+    ): System(PlayNext),
+    (
+        modifiers: [
+            Super,
+            Ctrl,
+        ],
+        key: "Left",
+    ): System(PlayPrev),
+    (
+        modifiers: [
+            Super,
+            Ctrl,
+        ],
+        key: "Down",
+    ): System(PlayPause),
+    (
+        modifiers: [
+            Super,
+            Shift,
+        ],
+        key: "t",
+    ): System(Terminal),
+    (
+        modifiers: [
+            Super,
+        ],
+        key: "e",
+    ): System(HomeFolder),
+    (
+        modifiers: [
+            Super,
+        ],
+        key: "y",
+        description: Some("Spotify"),
+    ): Spawn("spotify"),
+    (
+        modifiers: [
+            Super,
+        ],
+        key: "f",
+    ): System(WebBrowser),
+    (
+        modifiers: [
+            Super,
+            Shift,
+        ],
+        key: "m",
+    ): Minimize,
+    (
+        modifiers: [
+            Super,
+            Shift,
+        ],
+        key: "v",
+    ): System(VolumeLower),
+    (
+        modifiers: [
+            Super,
+        ],
+        key: "t",
+    ): Spawn("wezterm"),
+    (
+        modifiers: [
+            Super,
+        ],
+        key: "v",
+    ): System(VolumeRaise),
+}
