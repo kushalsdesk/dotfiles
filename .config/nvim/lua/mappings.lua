@@ -70,7 +70,8 @@ map("n", "<leader>+", "<C-a>", { desc = "Increment number", silent = true }) -- 
 map("n", "<leader>-", "<C-x>", { desc = "Decrement number", silent = true }) -- decrement
 
 --Nvim Tree management
-map("n", "<leader>ee", "<cmd>NvimTreeToggle<CR>", { desc = " open NvimTree", silent = true }) -- toggle file explorer
+map("n", "<leader>ee", "<cmd>NvimTreeToggle<CR>", { desc = "󰙅 open NvimTree", silent = true }) -- toggle file explorer
+
 map(
   "n",
   "<leader>ef",

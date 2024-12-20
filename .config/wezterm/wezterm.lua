@@ -19,12 +19,12 @@ local schemes = {
 }
 config.color_scheme = schemes.firefoxdev
 config.font = wezterm.font_with_fallback({
-	{ family = "Maple Mono", scale = 1.10 },
+	{ family = "Maple Mono", scale = 1 },
 	{ family = "Fira Code", scale = 1.30 },
 	{ family = "CaskaydiaCove Nerd Font", scale = 1.30 },
 	{ family = "RecMonoCasual Nerd Font Mono", scale = 1.30 },
 })
-config.window_background_opacity = 0.93
+config.window_background_opacity = 0.90
 config.hide_tab_bar_if_only_one_tab = true
 config.window_decorations = "NONE"
 config.window_close_confirmation = "NeverPrompt"
