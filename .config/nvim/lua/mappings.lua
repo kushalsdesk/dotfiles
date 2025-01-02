@@ -38,6 +38,13 @@ map("n", "<leader>N", "<CMD>Telescope notify<CR>", { desc = "Notifications" })
 map("n", "<leader>ms", "<CMD>Mason<CR>", { desc = "Mason Profile" })
 map("n", "<leader>q", "<CMD>qa<CR>", { desc = "Quit" })
 
+--Vim-Tmux navigator
+
+map("n", "<C-h>", "<CMD>TmuxNavigateLeft<CR>", { desc = "Window left" })
+map("n", "<C-l>", "<CMD>TmuxNavigateRight<CR>", { desc = "Window right" })
+map("n", "<C-j>", "<CMD>TmuxNavigateDown<CR>", { desc = "Window down" })
+map("n", "<C-k>", "<CMD>TmuxNavigateUp<CR>", { desc = "Window up" })
+
 -- Terminal management
 map({ "n", "t" }, "<C-\\>", function()
   require("nvchad.term").toggle { pos = "vsp", id = "Vertical" }

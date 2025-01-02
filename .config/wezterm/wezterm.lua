@@ -1,6 +1,5 @@
 local wezterm = require("wezterm")
 local act = wezterm.action
-local session_manager = require("wezterm-session-manager/session-manager")
 
 local config = {}
 -- Use the config builder when possible
@@ -19,12 +18,12 @@ local schemes = {
 }
 config.color_scheme = schemes.firefoxdev
 config.font = wezterm.font_with_fallback({
-	{ family = "Maple Mono", scale = 1 },
+	{ family = "Maple Mono ", weight = "Bold", style = "Normal", scale = 1.1 },
+	{ family = "Cascadia Code NF", weight = "Bold", style = "Normal", scale = 1.15 },
 	{ family = "Fira Code", scale = 1.30 },
-	{ family = "CaskaydiaCove Nerd Font", scale = 1.30 },
 	{ family = "RecMonoCasual Nerd Font Mono", scale = 1.30 },
 })
-config.window_background_opacity = 0.90
+config.window_background_opacity = 0.95
 config.hide_tab_bar_if_only_one_tab = true
 config.window_decorations = "NONE"
 config.window_close_confirmation = "NeverPrompt"
@@ -37,19 +36,20 @@ config.inactive_pane_hsb = {
 	saturation = 0.24,
 	brightness = 0.5,
 }
+
 -- session management commands
-wezterm.on("save_session", function(window)
-	session_manager.save_state(window)
-end)
-wezterm.on("load_session", function(window)
-	session_manager.load_state(window)
-end)
-wezterm.on("restore_session", function(window)
-	session_manager.restore_state(window)
-end)
+-- wezterm.on("save_session", function(window)
+-- 	session_manager.save_state(window)
+-- end)
+-- wezterm.on("load_session", function(window)
+-- 	session_manager.load_state(window)
+-- end)
+-- wezterm.on("restore_session", function(window)
+-- 	session_manager.restore_state(window)
+-- end)
 
 -- Keys
-config.leader = { key = "Space", mods = "CTRL", timeout_milliseconds = 1000 }
+config.leader = { key = "Enter", mods = "SHIFT", timeout_milliseconds = 1000 }
 config.keys = {
 	-- Send C-a when pressing C-a twice
 	{ key = "a", mods = "LEADER", action = act.SendKey({ key = "a", mods = "CTRL" }) },
@@ -82,8 +82,6 @@ config.keys = {
 		mods = "LEADER",
 		action = act.ActivateKeyTable({ name = "resize_pane", one_shot = false }),
 	},
-	-- adding the workspace fuction
-	{ key = "w", mods = "LEADER", action = act.ShowLauncherArgs({ flags = "FUZZY|WORKSPACES" }) },
 
 	-- Tab Keybindings
 	{ key = "n", mods = "LEADER", action = act.SpawnTab("CurrentPaneDomain") },
@@ -92,6 +90,67 @@ config.keys = {
 	{ key = "t", mods = "LEADER", action = act.ShowTabNavigator },
 	-- custom key_table for moving the tabs around
 	{ key = "m", mods = "LEADER", action = act.ActivateKeyTable({ name = "move_tabs", one_shot = false }) },
+
+	-- Switch to the default workspace
+	{
+		key = "y",
+		mods = "CTRL|SHIFT",
+		action = act.SwitchToWorkspace({
+			name = "default",
+		}),
+	},
+	-- Switch to a monitoring workspace, which will have `top` launched into it
+	{
+		key = "u",
+		mods = "CTRL|SHIFT",
+		action = act.SwitchToWorkspace({
+			name = "monitoring",
+			spawn = {
+				args = { "btop" },
+			},
+		}),
+	},
+	-- Create a new workspace with a random name and switch to it
+	{ key = "i", mods = "CTRL|SHIFT", action = act.SwitchToWorkspace },
+	-- Show the launcher in fuzzy selection mode and have it list all workspaces
+	-- and allow activating one.
+	{
+		key = "w",
+		mods = "ALT",
+		action = act.ShowLauncherArgs({
+			flags = "FUZZY|WORKSPACES",
+		}),
+	},
+	-- keybinding for all options
+	{ key = "W", mods = "ALT|SHIFT", action = wezterm.action.ShowLauncher },
+	-- switch between relative workspaces
+	{ key = "n", mods = "CTRL|SHIFT", action = act.SwitchWorkspaceRelative(1) },
+	{ key = "p", mods = "CTRL|SHIFT", action = act.SwitchWorkspaceRelative(-1) },
+	-- Prompt for a name to use for a new workspace and switch to it.
+	{
+		key = "W",
+		mods = "CTRL|SHIFT",
+		action = act.PromptInputLine({
+			description = wezterm.format({
+				{ Attribute = { Intensity = "Bold" } },
+				{ Foreground = { AnsiColor = "Fuchsia" } },
+				{ Text = "Enter name for new workspace" },
+			}),
+			action = wezterm.action_callback(function(window, pane, line)
+				-- line will be `nil` if they hit escape without entering anything
+				-- An empty string if they just hit enter
+				-- Or the actual line of text they wrote
+				if line then
+					window:perform_action(
+						act.SwitchToWorkspace({
+							name = line,
+						}),
+						pane
+					)
+				end
+			end),
+		}),
+	},
 }
 
 -- Having a quick access to the Tabs without the navigator
@@ -172,7 +231,7 @@ wezterm.on("update-right-status", function(window, pane)
 	--
 
 	-- The powerline < symbol
-	local LEFT_ARROW = utf8.char(0xe0b3)
+	-- local LEFT_ARROW = utf8.char(0xe0b3)
 	-- The filled in variant of the < symbol
 	local SOLID_LEFT_ARROW = utf8.char(0xe0b2)
 
@@ -206,7 +265,7 @@ wezterm.on("update-right-status", function(window, pane)
 	-- Translate a cell into elements
 	table.insert(elements, { Text = stat })
 	table.insert(elements, { Text = SOLID_LEFT_ARROW })
-	function push(text, is_last)
+	local function push(text, is_last)
 		local cell_no = num_cells + 1
 		table.insert(elements, { Background = { Color = colors[cell_no] } })
 		table.insert(elements, { Foreground = { Color = text_fg } })

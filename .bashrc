@@ -24,3 +24,4 @@ if [ -d ~/.bashrc.d ]; then
 fi
 unset rc
 . "/home/caracal/.deno/env"
+. "$HOME/.cargo/env"

@@ -22,6 +22,7 @@ return {
       "emmet_ls",
       "prismals",
       "pyright",
+      "intelephense", -- Add intelephense for PHP and Blade
     }
 
     -- Import mason and related modules
@@ -64,11 +65,30 @@ return {
 
     -- Setup lspconfig for each LSP server
     for _, lsp in ipairs(servers) do
-      lspconfig[lsp].setup {
+      local config = {
         on_attach = nvlsp.on_attach,
         on_init = nvlsp.on_init,
         capabilities = nvlsp.capabilities,
       }
+
+      -- Add specific configuration for intelephense
+      if lsp == "intelephense" then
+        config.settings = {
+          intelephense = {
+            filetypes = { "php", "blade", "php_only" },
+            files = {
+              associations = { "*.php", "*.blade.php" },
+              maxSize = 5000000,
+            },
+          },
+        }
+      end
+
+      if lsp == "emmet_ls" then
+        config.filetypes = { "html", "css", "blade" }
+      end
+
+      lspconfig[lsp].setup(config)
     end
   end,
 }

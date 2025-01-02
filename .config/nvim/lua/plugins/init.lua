@@ -45,6 +45,12 @@ return {
   --   require "configs.noice",
   -- },
 
+  --Navigator
+  {
+    "christoomey/vim-tmux-navigator",
+    lazy = false,
+  },
+
   -- File manager
   {
     "nvim-tree/nvim-tree.lua",
@@ -90,5 +96,9 @@ return {
     config = function()
       require("refactoring").setup {}
     end,
+  },
+  {
+    "jwalton512/vim-blade", -- For Blade syntax highlighting
+    lazy = false,
   },
 }

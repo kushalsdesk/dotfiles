@@ -33,9 +33,12 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # Previous aliases
-alias h.="helix ."
-alias hx="helix"
+#alias h.="helix ."
+#alias hx="helix"
 alias fh="fzf --preview 'bat --style=numbers --color=always {}' | xargs -n 1 helix "
+alias tt="tmux new -s TMUX"
+alias tmn="tmux new"
+alias tma="tmux a"
 alias wez="~/.config/wezterm/"
 alias lpt="cd /home/caracal/Documents/Languages/"
 alias nvpt="cd /home/caracal/.dotfiles/.config/nvim"
@@ -71,9 +74,6 @@ alias .5='cd ../../../../..'
 
 # Always mkdir a path (this doesn't inhibit functionality to make a single dir)
 alias mkdir='mkdir -p'
-
-
-
 
 #Customized aliases for flutter .
 alias flutAndroid="flutter emulators --launch android_normal && flutter run"
@@ -153,6 +153,7 @@ run () {
 export PATH="$PATH:/usr/bin"
 export PATH="/usr/local/bin:$PATH"
 
+
 # bun completions
 [ -s "/home/caracal/.bun/_bun" ] && source "/home/caracal/.bun/_bun"
 
@@ -173,4 +174,14 @@ eval "$(zoxide init zsh)"
 export PATH=$HOME/.local/bin:$PATH
 alias ff='fastfetch'
 alias nn='nvim'
+alias update='sudo dnf update && sudo dnf upgrade'
 . "/home/caracal/.deno/env"
+
+# adding tmux 
+# if [ -z "$TMUX" ]
+# then
+#    tmux attach -t TMUX || tmux new -s TMUX
+# fi
+
+export PATH="/home/caracal/.config/herd-lite/bin:$PATH"
+export PHP_INI_SCAN_DIR="/home/caracal/.config/herd-lite/bin:$PHP_INI_SCAN_DIR"

@@ -90,6 +90,10 @@ when = "test $(pwd) = $HOME"
 symbol="  "
 style = "blue"
 
+[php]
+symbol="  "
+style="purple"
+
 [lua]
 symbol = "  "
 style = "blue"
