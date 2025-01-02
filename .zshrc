@@ -36,7 +36,6 @@ export NVM_DIR="$HOME/.nvm"
 #alias h.="helix ."
 #alias hx="helix"
 alias fh="fzf --preview 'bat --style=numbers --color=always {}' | xargs -n 1 helix "
-alias tt="tmux new -s TMUX"
 alias tmn="tmux new"
 alias tma="tmux a"
 alias wez="~/.config/wezterm/"
@@ -178,10 +177,17 @@ alias update='sudo dnf update && sudo dnf upgrade'
 . "/home/caracal/.deno/env"
 
 # adding tmux 
-# if [ -z "$TMUX" ]
-# then
-#    tmux attach -t TMUX || tmux new -s TMUX
-# fi
+function tt() {
+  if [ -z "$TMUX" ]; then
+    if tmux has-session -t TMUX 2>/dev/null; then
+      tmux attach-session -t TMUX
+    else
+      tmux new-session -s TMUX
+    fi
+  else
+    echo "Already inside a TMUX session."
+  fi
+}
 
 export PATH="/home/caracal/.config/herd-lite/bin:$PATH"
 export PHP_INI_SCAN_DIR="/home/caracal/.config/herd-lite/bin:$PHP_INI_SCAN_DIR"
