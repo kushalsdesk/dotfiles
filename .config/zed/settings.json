@@ -1,0 +1,109 @@
+// Zed settings
+//
+// For information on how to configure Zed, see the Zed
+// documentation: https://zed.dev/docs/configuring-zed
+//
+// To see all of Zed's default settings without changing your
+// custom settings, run `zed: open default settings` from the
+// command palette (cmd-shift-p / ctrl-shift-p)
+// Zed Custom Settings - Categorized by Kush
+// For full documentation: https://zed.dev/docs/configuring-zed
+
+{
+  // 🧠 AI & Assistant Settings
+  "agent": {
+    "default_model": {
+      "provider": "zed.dev",
+      "model": "claude-3-5-sonnet-latest"
+    },
+    "version": "2"
+  },
+  "features": {
+    "edit_prediction_provider": "zed",
+    "copilot": false
+  },
+  "show_edit_predictions": true,
+
+  // 🖼️ UI-Centric Settings
+  "ui_font_family": "CaskaydiaCove Nerd Font Propo",
+  "ui_font_size": 18,
+  "theme": {
+    "mode": "system",
+    "light": "One Light",
+    "dark": "Tokyo Night"
+  },
+  "icon_theme": "Material Icon Theme",
+  "cursor_blink": false,
+  "scrollbar": {
+    "show": "never"
+  },
+  "wrap_guides": [90],
+  "show_wrap_guides": true,
+  "tab_bar": {
+    "show": true
+  },
+  "project_panel": {
+    "hide_gitignore": false,
+    "dock": "left"
+  },
+  "toolbar": {
+    "breadcrumbs": true,
+    "quick_actions": false,
+    "selections_menu": true
+  },
+  "bottom_dock_layout": "contained",
+  "hide_mouse": "on_typing_and_movement",
+
+  // ✍️ Editor-Centric Settings
+  "buffer_font_family": "Maple Mono",
+  "buffer_font_size": 17,
+  "relative_line_numbers": true,
+  "linked_edits": false,
+  "preview_tabs": {
+    "enabled": false
+  },
+  "indent_guides": {
+    "enabled": true,
+    "coloring": "indent_aware"
+  },
+  "inlay_hints": {
+    "enabled": true
+  },
+  "vim_mode": true,
+
+  // 🪞 Pane & Layout Settings
+  "active_pane_modifiers": {
+    "magnification": 1.2,
+    "border_size": 0.0,
+    "inactive_opacity": 1.0
+  },
+
+  // 🪲 Diagnostics & Developer Experience
+  "diagnostics": {
+    "include_warnings": true,
+    "inline": {
+      "enabled": true,
+      "update_debounce_ms": 150,
+      "padding": 4,
+      "min_column": 0,
+      "max_severity": null
+    }
+  },
+
+  // 🌿 Git-Centric Settings
+  "git": {
+    "git_gutter": "tracked_files",
+    "gutter_debounce": null,
+    "inline_blame": {
+      "enabled": true
+    },
+    "hunk_style": null
+  },
+
+  // 🧩 Extensions & Privacy
+  "auto_install_extensions": {},
+  "telemetry": {
+    "metrics": false,
+    "diagnostics": false
+  }
+}

@@ -56,6 +56,7 @@ alias ls='eza -1   --icons=auto' # short list
 alias ll='eza -lha --icons=auto --sort=name --group-directories-first' # long list all
 alias ld='eza -lhD --icons=auto' # long list dirs
 alias lt='eza --icons=auto --tree' # list folder as tree
+alias lg='lazygit' # list folder as tree
 alias un='$aurhelper -Rns' # uninstall package
 alias up='$aurhelper -Syu' # update system/package/aur
 alias pl='$aurhelper -Qs' # list installed package
@@ -78,7 +79,7 @@ alias mkdir='mkdir -p'
 alias flutAndroid="flutter emulators --launch android_normal && flutter run"
 alias flutDesktop="flutter run -d linux"
 
-
+# getting into yazi
 function yy ()
 {
   local tmp="$(mktemp -t "yazi-cwd.XXXXX")"
@@ -88,6 +89,19 @@ function yy ()
   fi
   rm -f -- "$tmp"
 
+}
+
+# adding tmux 
+function tt() {
+  if [ -z "$TMUX" ]; then
+    if tmux has-session -t TMUX 2>/dev/null; then
+      tmux attach-session -t TMUX
+    else
+      tmux new-session -s TMUX
+    fi
+  else
+    echo "Already inside a TMUX session."
+  fi
 }
 
 #Function for compiling the JavaFile
@@ -174,20 +188,9 @@ export PATH=$HOME/.local/bin:$PATH
 alias ff='fastfetch'
 alias nn='nvim'
 alias update='sudo dnf update && sudo dnf upgrade'
+alias dockerun='sudo systemctl start docker'
 . "/home/caracal/.deno/env"
 
-# adding tmux 
-function tt() {
-  if [ -z "$TMUX" ]; then
-    if tmux has-session -t TMUX 2>/dev/null; then
-      tmux attach-session -t TMUX
-    else
-      tmux new-session -s TMUX
-    fi
-  else
-    echo "Already inside a TMUX session."
-  fi
-}
 
 export PATH="/home/caracal/.config/herd-lite/bin:$PATH"
 export PHP_INI_SCAN_DIR="/home/caracal/.config/herd-lite/bin:$PHP_INI_SCAN_DIR"

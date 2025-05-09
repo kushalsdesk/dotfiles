@@ -25,7 +25,7 @@ config.font = wezterm.font_with_fallback({
 })
 config.window_background_opacity = 0.95
 config.hide_tab_bar_if_only_one_tab = true
-config.window_decorations = "NONE"
+config.window_decorations = "TITLE"
 config.window_close_confirmation = "NeverPrompt"
 config.scrollback_lines = 1500
 config.default_workspace = "home"

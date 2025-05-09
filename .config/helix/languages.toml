@@ -1,0 +1,19 @@
+# TypeScript
+[[language]]
+name = "typescript"
+formatter = { command = "~/.bun/bin/prettier", args = ["--stdin-filepath", "file.ts"] }
+
+# TSX
+[[language]]
+name = "tsx"
+formatter = { command = "~/.bun/bin/prettier", args = ["--stdin-filepath", "file.tsx"] }
+
+# JavaScript (optional, if you're using it too)
+[[language]]
+name = "javascript"
+formatter = { command = "~/.bun/bin/prettier", args = ["--stdin-filepath", "file.js"] }
+
+# Go (using gofmt; change to "goimports" if preferred)
+[[language]]
+name = "go"
+formatter = { command = "gofmt" }

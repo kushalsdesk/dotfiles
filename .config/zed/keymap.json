@@ -1,0 +1,92 @@
+// Zed keymap
+//
+// For information on binding keys, see the Zed
+// documentation: https://zed.dev/docs/key-bindings
+//
+// To see the default key bindings run `zed: open default keymap`
+// from the command palette.
+[
+  {
+    "context": "Terminal",
+    "bindings": {
+      // "shift shift": "file_finder::Toggle"
+      "space t n": "workspace::NewTerminal",
+      "space t x": "pane::CloseActiveItem",
+      "space t t": "workspace::ToggleBottomDock"
+    }
+  },
+  {
+    "context": "Editor && vim_mode == insert",
+    "bindings": {
+      "tab": "menu::SelectNext",
+      "shift-tab": "menu::SelectPrevious",
+      "enter": "menu::Confirm",
+      "ctrl-b": "workspace::ToggleLeftDock"
+    }
+  },
+  {
+    "context": "Editor && vim_mode == normal",
+    "bindings": {
+      // 🔍 Navigation & File
+      "space f f": "file_finder::Toggle", // Open file
+      "space b b": "tab_switcher::Toggle", // Open buffer list
+      "space b x": "pane::CloseActiveItem", // Close active tab
+      "space b X": "pane::CloseInactiveItems", // Close all inactive tabs
+      "space b U": "pane::ReopenClosedItem", // Reopen closed tab
+      "space w q": "workspace::CloseWindow", // Quit window
+      "space q q": "workspace::CloseAllDocks", // Force quit
+
+      // 💾 Saving
+      "space s s": "workspace::SaveAll", // Save all files
+
+      // 📂 Panels
+      "space e e": "project_panel::ToggleFocus", // Toggle project explorer
+      "space o o": "outline_panel::ToggleFocus", // Toggle symbol outline
+      "space g g": "git_panel::ToggleFocus", // Git panel
+      "ctrl-b": "workspace::ToggleLeftDock", // Toggle file explorer
+
+      // ⚙️ Code & Actions
+      "space c a": "editor::ToggleCodeActions", // Code actions (like LSP)
+
+      // 🧪 Diagnostics
+      "space d d": "editor::GoToDiagnostic", // Jump to next diagnostic
+      "space d x": "diagnostics::Deploy", // Run diagnostics
+
+      // 🧭 Pane Management
+      "space s u": "pane::SplitUp", // Split up
+      "space s d": "pane::SplitDown", // Split down
+      "space s h": "pane::SplitLeft", // Split left
+      "space s l": "pane::SplitRight", // Split right
+      "space s x": "pane::CloseActiveItem", // Close split
+
+      // 💻 Terminal
+      "space t n": "workspace::NewTerminal", // New terminal
+      "space t t": "workspace::ToggleBottomDock", // Toggle terminal
+
+      // 🌿 Git
+      "space g s": "git::StageAll", // Stage all
+      "space g u": "git::UnstageAll", // Unstage all
+      "space g t": "git::ToggleStaged", // Toggle staged view
+      "space g n": "git::StageAndNext", // Stage and go next
+      "space g N": "git::UnstageAndNext", // Unstage and go next
+      "space g c": "git::Commit", // Commit
+      "space g e": "git::ExpandCommitEditor", // Expand commit editor
+      "space g p": "git::Push", // Push
+      "space g P": "git::ForcePush", // Force push
+      "space g l": "git::Pull", // Pull
+      "space g f": "git::Fetch", // Fetch
+      "space g d": "git::Diff", // Diff view
+      "space g r": "git::Restore", // Restore all changes
+      "space g R": "git::RestoreFile", // Restore current file
+      "space g b": "git::Branch", // Git branches
+      "space g w": "git::Switch", // Switch branch
+      "space g C": "git::CheckoutBranch", // Checkout branch
+      "space g I": "editor::ToggleGitBlameInline", // Toggle inline git blame
+
+      // 🍽️ Menu Navigation
+      "tab": "menu::SelectNext",
+      "shift-tab": "menu::SelectPrevious",
+      "enter": "menu::Confirm"
+    }
+  }
+]

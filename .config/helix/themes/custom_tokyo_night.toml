@@ -1,0 +1,110 @@
+inherits = "base16_default"
+
+"ui.background" = "bg"
+"ui.text" = "fg"
+"ui.cursor" = { fg = "bg", bg = "teal" }
+"ui.cursor.match" = { fg = "none", bg = "cursor_match" }
+"ui.selection" = { bg = "selection" }
+"ui.selection.primary" = { bg = "selection" }
+"ui.virtual.whitespace" = "gray"
+"ui.virtual.indent-guide" = "gray"
+"ui.menu" = { fg = "fg", bg = "bg_alt" }
+"ui.menu.selected" = { fg = "fg", bg = "selection" }
+"ui.popup" = { fg = "fg", bg = "bg_alt" }
+"ui.statusline" = { fg = "fg", bg = "bg_alt" }
+"ui.statusline.insert" = { fg = "black", bg = "green" }
+"ui.statusline.normal" = { fg = "black", bg = "magenta" }
+"ui.statusline.select" = { fg = "black", bg = "teal" }
+"ui.linenr" = "gray"
+"ui.linenr.selected" = "light-gray"
+"ui.gutter" = "bg"
+"ui.gutter.selected" = "bg"
+
+"comment" = { fg = "comment", modifiers = ["italic"] }
+
+"keyword" = "magenta"
+"keyword.control" = "purple"
+"keyword.function" = "magenta"
+
+"type" = "teal"
+"type.builtin" = "cyan"
+
+"function" = "green"
+"function.method" = "green"
+"function.macro" = "orange"
+
+"variable" = "fg"
+"variable.builtin" = "orange_dark"
+"variable.other.member" = "light_gray"
+
+"string" = "peach"
+"constant" = "peach"
+"constant.numeric" = "peach"
+"constant.language" = "orange"
+
+"operator" = "violet"
+"attribute" = "teal"
+
+"tag" = "orange"
+"namespace" = "fg"
+
+"markup.heading" = { fg = "purple", modifiers = ["bold"] }
+"markup.bold" = { fg = "orange", modifiers = ["bold"] }
+"markup.italic" = { fg = "magenta", modifiers = ["italic"] }
+"markup.strikethrough" = "gray"
+"markup.link.text" = "green"
+"markup.link.url" = "cyan"
+
+"diff.plus" = "green_dark"
+"diff.minus" = "red_dark"
+"diff.delta" = "yellow_dark"
+
+"diagnostic" = "orange"
+"diagnostic.error" = "red"
+"diagnostic.warning" = "yellow"
+"diagnostic.info" = "cyan_dark"
+"diagnostic.hint" = "teal"
+
+"punctuation" = "gray"
+"punctuation.delimiter" = "gray"
+"punctuation.special" = "purple"
+
+"punctuation.bracket.round" = "bracket1"   # ()
+"punctuation.bracket.square" = "bracket2"  # []
+"punctuation.bracket.curly" = "bracket3"   # {}
+"punctuation.bracket.angle" = "bracket4"   # <>
+
+[palette]
+bg = "#1a1b26"
+bg_alt = "#1f2335"
+fg = "#c0caf5"
+
+black = "#15161e"
+red = "#f7768e"
+red_dark = "#a9333f"
+green = "#9ece6a"
+green_dark = "#5a7f41"
+yellow = "#e0af68"
+yellow_dark = "#b88339"
+blue = "#7aa2f7"
+blue_dark = "#3b5380"
+magenta = "#bb9af7"
+purple = "#9d7cd8"
+cyan = "#7dcfff"
+cyan_dark = "#3a8dbb"
+teal = "#2ac3de"
+orange = "#ff9e64"
+orange_dark = "#bd722d"
+peach = "#fab387"
+gray = "#565f89"
+light-gray = "#a9b1d6"
+comment = "#3c3f51"
+
+bracket1 = "#ff79c6"  # ()
+bracket2 = "#8be9fd"  # []
+bracket3 = "#50fa7b"  # {}
+bracket4 = "#f1fa8c"  # <>
+
+cursor_match = "#3d59a1"
+selection = "#33467c"
+none = "#00000000"
