@@ -5,9 +5,9 @@
 --@type ChadrcConfig
 local M = {
   base46 = {
-    theme = "tokyodark",
+    theme = "nightfox",
     transparency = true,
-    theme_toggle = { "nightfox", "tokyodark" },
+    theme_toggle = { "nightfox", "nightfox" },
   },
   ui = {
     telescope = { style = "borderless" }, -- borderless / bordered

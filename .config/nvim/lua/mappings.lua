@@ -65,6 +65,7 @@ map("v", "<A-k>", ":m '<-2<cr>gv=gv", { desc = "Move up", silent = true })
 -- Code Control
 map({ "n", "v", "x" }, "<leader>cc", ':y+"<CR>', { desc = "Copies into System Clipboard" })
 map({ "n", "v", "x" }, "<leader>cl", '<S-v>yp"<CR>', { desc = "Clones the Current Line" })
+map("n", "<leader>ca", vim.lsp.buf.code_action, { buffer = bufnr, desc = "LSP Code Action" })
 
 -- Cursor Movement
 map({ "n", "v", "x" }, "<A-h>", "^", { desc = "Start of Line", silent = true })

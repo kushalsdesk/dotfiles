@@ -6,27 +6,137 @@
 // To see all of Zed's default settings without changing your
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
+// Zed Custom Settings - Categorized by Kush
+// For full documentation: https://zed.dev/docs/configuring-zed
+
 {
-  "icon_theme": "Material Icon Theme",
-  "vim_mode": true,
-  "assistant": {
+  // 🧠 AI & Assistant Settings
+  "agent": {
+    "default_profile": "ask",
+    "always_allow_tool_actions": true,
+    "inline_assistant_model": {
+      "provider": "ollama",
+      "model": "qwen2.5-coder:1.5b-instruct-q5_K_M"
+    },
     "default_model": {
-      "provider": "zed.dev",
-      "model": "claude-3-5-sonnet-latest"
+      "provider": "ollama",
+      "model": "qwen2.5-coder:1.5b-instruct-q5_K_M"
     },
     "version": "2"
   },
-  "ui_font_size": 16,
-  "buffer_font_size": 16,
+  "features": {
+    "edit_prediction_provider": "zed",
+    "copilot": false
+  },
+  "show_edit_predictions": true,
+
+  // 🧠 Ollama Code Models
+  "language_models": {
+    "ollama": {
+      "api_url": "http://localhost:11434",
+      "available_models": [
+        {
+          "name": "qwen2.5:3b-instruct-q4_K_M",
+          "display_name": "Qwen2.5 - 3b_it_q4_K_M",
+          "max_tokens": 30072,
+          "keep_alive": "10m"
+        },
+        {
+          "name": "qwen2.5-coder:3b-instruct-q5_K_M",
+          "display_name": "Qwen2.5-coder - 3b_it_q5_K_M",
+          "max_tokens": 30072,
+          "keep_alive": "10m"
+        }
+        // {
+        //   "name": "gemma3:4b-it-q4_K_M",
+        //   "display_name": "Gemma3 4B",
+        //   "max_tokens": 121072,
+        //   "keep_alive": "10m"
+        // }
+      ]
+    }
+  },
+
+  // 🖼️ UI-Centric Settings
+  "ui_font_family": "CaskaydiaCove Nerd Font Propo",
+  "ui_font_size": 18,
   "theme": {
     "mode": "system",
     "light": "One Light",
     "dark": "Tokyo Night"
   },
+  "icon_theme": "Material Icon Theme",
+  "cursor_blink": false,
   "scrollbar": {
     "show": "never"
   },
+  "wrap_guides": [90],
+  "show_wrap_guides": true,
+  "tab_bar": {
+    "show": true
+  },
   "project_panel": {
-    "dock": "right"
+    "hide_gitignore": false,
+    "dock": "left"
+  },
+  "toolbar": {
+    "breadcrumbs": true,
+    "quick_actions": false,
+    "selections_menu": true
+  },
+  "bottom_dock_layout": "contained",
+  "hide_mouse": "on_typing_and_movement",
+
+  // ✍️ Editor-Centric Settings
+  "buffer_font_family": "Maple Mono",
+  "buffer_font_size": 17,
+  "relative_line_numbers": true,
+  "linked_edits": false,
+  "preview_tabs": {
+    "enabled": false
+  },
+  "indent_guides": {
+    "enabled": true,
+    "coloring": "indent_aware"
+  },
+  "inlay_hints": {
+    "enabled": true
+  },
+  "vim_mode": true,
+
+  // 🪞 Pane & Layout Settings
+  "active_pane_modifiers": {
+    "magnification": 1.2,
+    "border_size": 0.0,
+    "inactive_opacity": 1.0
+  },
+
+  // 🪲 Diagnostics & Developer Experience
+  "diagnostics": {
+    "include_warnings": true,
+    "inline": {
+      "enabled": true,
+      "update_debounce_ms": 150,
+      "padding": 4,
+      "min_column": 0,
+      "max_severity": null
+    }
+  },
+
+  // 🌿 Git-Centric Settings
+  "git": {
+    "git_gutter": "tracked_files",
+    "gutter_debounce": null,
+    "inline_blame": {
+      "enabled": true
+    },
+    "hunk_style": null
+  },
+
+  // 🧩 Extensions & Privacy
+  "auto_install_extensions": {},
+  "telemetry": {
+    "metrics": false,
+    "diagnostics": false
   }
 }

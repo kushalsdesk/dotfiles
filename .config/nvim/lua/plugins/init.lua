@@ -51,6 +51,11 @@ return {
     lazy = false,
   },
 
+  -- Smear Cursor
+  {
+    require "configs.smear-cursor",
+  },
+
   -- File manager
   {
     "nvim-tree/nvim-tree.lua",

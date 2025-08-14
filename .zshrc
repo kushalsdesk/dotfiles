@@ -2,6 +2,7 @@
 # export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 export ZSH=$HOME/.oh-my-zsh
 
 
@@ -36,19 +37,7 @@ export NVM_DIR="$HOME/.nvm"
 #alias h.="helix ."
 #alias hx="helix"
 alias fh="fzf --preview 'bat --style=numbers --color=always {}' | xargs -n 1 helix "
-alias tmn="tmux new"
-alias tma="tmux a"
-alias wez="~/.config/wezterm/"
-alias lpt="cd /home/caracal/Documents/Languages/"
-alias nvpt="cd /home/caracal/.dotfiles/.config/nvim"
-alias ppt="cd /home/caracal/Documents/Builds/"
-alias ypt="cd /home/caracal/.config/yazi/"
-alias nio="nvim"
-alias gadd="git add ."
-alias gcom="better-commits"
-alias gpush="git push -u origin main"
-alias naut="nautilus ."
-alias wezterm="flatpak run org.wezfurlong.wezterm"
+
 # Helpful aliases
 alias  c='clear' # clear terminal
 alias  l='eza -lh  --icons=auto' # long list
@@ -63,7 +52,6 @@ alias pl='$aurhelper -Qs' # list installed package
 alias pa='$aurhelper -Ss' # list availabe package
 alias pc='$aurhelper -Sc' # remove unused cache
 alias po='$aurhelper -Qtdq | $aurhelper -Rns -' # remove unused packages, also try > $aurhelper -Qqd | $aurhelper -Rsu --print -
-alias vc='code' # gui code editor
 
 # Handy change dir shortcuts
 alias ..='cd ..'
@@ -75,9 +63,6 @@ alias .5='cd ../../../../..'
 # Always mkdir a path (this doesn't inhibit functionality to make a single dir)
 alias mkdir='mkdir -p'
 
-#Customized aliases for flutter .
-alias flutAndroid="flutter emulators --launch android_normal && flutter run"
-alias flutDesktop="flutter run -d linux"
 
 # getting into yazi
 function yy ()
@@ -185,7 +170,6 @@ export PATH="$ENCORE_INSTALL/bin:$PATH"
 eval "$(starship init zsh)"
 eval "$(zoxide init zsh)"
 export PATH=$HOME/.local/bin:$PATH
-alias ff='fastfetch'
 alias nn='nvim'
 alias update='sudo dnf update && sudo dnf upgrade'
 alias dockerun='sudo systemctl start docker'
@@ -194,3 +178,4 @@ alias dockerun='sudo systemctl start docker'
 
 export PATH="/home/caracal/.config/herd-lite/bin:$PATH"
 export PHP_INI_SCAN_DIR="/home/caracal/.config/herd-lite/bin:$PHP_INI_SCAN_DIR"
+

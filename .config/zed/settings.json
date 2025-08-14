@@ -12,25 +12,56 @@
 {
   // 🧠 AI & Assistant Settings
   "agent": {
-    "default_model": {
-      "provider": "zed.dev",
-      "model": "claude-3-5-sonnet-latest"
+    "default_profile": "ask",
+    "always_allow_tool_actions": true,
+    "inline_assistant_model": {
+      "provider": "ollama",
+      "model": "qwen2.5-coder:1.5b-instruct-q5_K_M"
     },
-    "version": "2"
+    "default_model": {
+      "provider": "ollama",
+      "model": "qwen2.5-coder:1.5b-instruct-q5_K_M"
+    }
   },
   "features": {
-    "edit_prediction_provider": "zed",
-    "copilot": false
+    "edit_prediction_provider": "none"
   },
-  "show_edit_predictions": true,
+  "show_edit_predictions": false,
+
+  // 🧠 Ollama Code Models
+  "language_models": {
+    "ollama": {
+      "api_url": "http://localhost:11434",
+      "available_models": [
+        {
+          "name": "qwen2.5:3b-instruct-q4_K_M",
+          "display_name": "Qwen2.5 - 3b_it_q4_K_M",
+          "max_tokens": 30072,
+          "keep_alive": "10m"
+        },
+        {
+          "name": "qwen2.5-coder:3b-instruct-q5_K_M",
+          "display_name": "Qwen2.5-coder - 3b_it_q5_K_M",
+          "max_tokens": 30072,
+          "keep_alive": "10m"
+        }
+        // {
+        //   "name": "gemma3:4b-it-q4_K_M",
+        //   "display_name": "Gemma3 4B",
+        //   "max_tokens": 121072,
+        //   "keep_alive": "10m"
+        // }
+      ]
+    }
+  },
 
   // 🖼️ UI-Centric Settings
   "ui_font_family": "CaskaydiaCove Nerd Font Propo",
   "ui_font_size": 18,
   "theme": {
-    "mode": "system",
+    "mode": "dark",
     "light": "One Light",
-    "dark": "Tokyo Night"
+    "dark": "Catppuccin Espresso (Blur)"
   },
   "icon_theme": "Material Icon Theme",
   "cursor_blink": false,
@@ -56,7 +87,7 @@
 
   // ✍️ Editor-Centric Settings
   "buffer_font_family": "Maple Mono",
-  "buffer_font_size": 17,
+  "buffer_font_size": 16,
   "relative_line_numbers": true,
   "linked_edits": false,
   "preview_tabs": {
@@ -73,7 +104,6 @@
 
   // 🪞 Pane & Layout Settings
   "active_pane_modifiers": {
-    "magnification": 1.2,
     "border_size": 0.0,
     "inactive_opacity": 1.0
   },

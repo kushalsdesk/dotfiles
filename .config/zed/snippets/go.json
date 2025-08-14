@@ -1,0 +1,42 @@
+{
+  // Normal function definition
+  "Go Function": {
+    "prefix": "func",
+    "body": [
+      "func ${1:FunctionName}(${2:args}) ${3:returnType} {",
+      "\t$0",
+      "}"
+    ],
+    "description": "Basic Go function definition"
+  },
+
+  // Method with pointer receiver
+  "Go Pointer Method": {
+    "prefix": "funcp",
+    "body": [
+      "func (${1:recv} *${2:Type}) ${3:MethodName}(${4:args}) ${5:returnType} {",
+      "\t$0",
+      "}"
+    ],
+    "description": "Go method with pointer receiver"
+  },
+
+  // Struct definition
+  "Go Struct": {
+    "prefix": "struct",
+    "body": [
+      "type ${1:StructName} struct {",
+      "\t${2:FieldName} ${3:FieldType}",
+      "}",
+      "$0"
+    ],
+    "description": "Go struct definition"
+  },
+
+  // if ! check
+  "Go if not": {
+    "prefix": "ifnot",
+    "body": ["if !${1:condition} {", "\t$0", "}"],
+    "description": "Go if not condition"
+  }
+}

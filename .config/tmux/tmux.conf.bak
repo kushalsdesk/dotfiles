@@ -1,0 +1,98 @@
+# Mouse support and terminal
+set -g mouse on
+set -g default-terminal "tmux-256color"
+
+# Base index and renumbering
+set -g base-index 1
+set -g pane-base-index 1
+set -g set-clipboard on
+set -g renumber-windows on
+
+set -g pane-active-border-style 'fg=magenta,bg=default'
+set -g pane-border-style 'fg=brightblack,bg=default'
+set -g @continuum-restore 'on'
+set -g @resurrect-strategy-nvim 'session'
+# Custom prefix
+unbind C-b
+set -g prefix C-Space
+bind C-Space send-prefix
+
+# Reload config
+unbind r
+bind r source-file ~/.config/tmux/tmux.conf
+
+# Splitting panes in the current directory
+bind - split-window -v -c "#{pane_current_path}"
+bind | split-window -h -c "#{pane_current_path}"
+
+# Pane navigation
+bind h select-pane -L
+bind j select-pane -D
+bind k select-pane -U
+bind l select-pane -R
+
+# Kill pane
+unbind x
+bind x kill-pane
+
+# Zoom pane
+unbind z
+bind z resize-pane -Z
+
+# Rotate panes
+bind s rotate-window
+
+# Copy mode
+unbind c
+bind c copy-mode
+set-window-option -g mode-keys vi
+bind-key -T copy-mode-vi v send-keys -X begin-selection
+bind-key -T copy-mode-vi C-v send-keys -X rectangle-toggle
+bind-key -T copy-mode-vi y send-keys -X copy-selection-and-cancel
+# Window cycling with wrap-around
+unbind Tab
+bind Tab next-window
+
+# Automatic renaming
+set -g automatic-rename
+set -g allow-rename off
+
+# Status bar
+#TODO: Theme
+set -g @catppuccin_flavour 'mocha' # latte or frappe, macchiato, mocha
+set -g @catppuccin_window_left_separator " █"
+set -g @catppuccin_window_right_separator "█ "
+set -g @catppuccin_window_middle_separator "|"
+set -g @catppuccin_window_number_position "right"
+set -g @catppuccin_window_default_fill "number"
+set -g @catppuccin_window_default_text "#W"
+set -g @catppuccin_window_current_fill "number"
+set -g @catppuccin_window_current_text "#W#{?window_zoomed_flag,(),}"
+set -g @catppuccin_status_modules_right "directory date_time"
+set -g @catppuccin_window_modules_left "session"
+set -g @catppuccin_status_left_separator  " █"
+set -g @catppuccin_status_right_separator "█ "
+set -g @catppuccin_status_right_separator_inverse "no"
+set -g @catppuccin_status_fill "icon"
+set -g @catppuccin_status_connect_separator "no"
+set -g @catppuccin_directory_text "#{b:pane_current_path}"
+set -g @catppuccin_meetings_text "#($HOME/.config/tmux/scripts/cal.sh)"
+set -g @catppuccin_date_time_text "%H:%M"
+set -g @catppuccin_window_current_fill "all"
+set -g @catppuccin_status_modules_right "application session user battery"
+
+# Plugins
+set -g @plugin 'tmux-plugins/tpm'
+set -g @plugin 'omerxx/catppuccin-tmux'
+set -g @plugin 'tmux-plugins/tmux-sensible'
+set -g @plugin 'tmux-plugins/tmux-yank'
+set -g @plugin 'tmux-plugins/tmux-continuum'
+set -g @plugin 'tmux-plugins/tmux-resurrect'
+set -g @plugin 'tmux-plugins/tmux-cpu'
+set -g @plugin 'christoomey/vim-tmux-navigator'
+set -g @plugin 'omerxx/tmux-session-manager'
+set -g @plugin 'tmux-plugins/tmux-battery'
+set -g @plugin 'xamut/tmux-weather'
+
+# TPM initialization
+run '~/.tmux/plugins/tpm/tpm'

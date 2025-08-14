@@ -25,6 +25,15 @@
     }
   },
   {
+    "context": "Workspace",
+    "bindings": {
+      // 🍽️ Menu Navigation
+      "tab": "menu::SelectNext",
+      "shift-tab": "menu::SelectPrevious",
+      "enter": "menu::Confirm"
+    }
+  },
+  {
     "context": "Editor && vim_mode == normal",
     "bindings": {
       // 🔍 Navigation & File
@@ -81,12 +90,7 @@
       "space g b": "git::Branch", // Git branches
       "space g w": "git::Switch", // Switch branch
       "space g C": "git::CheckoutBranch", // Checkout branch
-      "space g I": "editor::ToggleGitBlameInline", // Toggle inline git blame
-
-      // 🍽️ Menu Navigation
-      "tab": "menu::SelectNext",
-      "shift-tab": "menu::SelectPrevious",
-      "enter": "menu::Confirm"
+      "space g I": "editor::ToggleGitBlameInline" // Toggle inline git blame
     }
   }
 ]

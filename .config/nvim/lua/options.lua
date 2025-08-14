@@ -29,6 +29,7 @@ opt.inccommand = "nosplit" -- Preview incremental substitute
 opt.backspace = "indent,eol,start" -- Allow backspace on indent, end of line, or insert mode start position
 
 -- Appearance
+opt.winborder = "rounded"
 opt.cursorline = true -- Enable highlighting of the current line
 opt.termguicolors = true -- True color support
 opt.background = "dark" -- Colorschemes that can be light or dark
